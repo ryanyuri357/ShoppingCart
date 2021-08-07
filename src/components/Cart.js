@@ -37,7 +37,21 @@ const Cart = ({cartItem, removeItem, buyNow}) => {
             </ListGroup>
             {/*If everything is empty*/}
             {
-                cartItem.length >= 1 ? () : ()
+                cartItem.length >= 1 ? (
+                    <Card className="text-center mt-3">
+                        <CardHeader>
+                            Grand Total
+                        </CardHeader>
+                        <CardBody>
+                            Your amount for {cartItem.length} product(s) = {amount}
+                        </CardBody>
+                        <CardFooter>
+                            <Button color="success" onClick={buyNow}>Pay Now</Button>
+                        </CardFooter>
+                    </Card>
+                ) : (
+                    <h1 className="text-warning">Cart is empty</h1>
+                )
             }
         </Container>
     )
